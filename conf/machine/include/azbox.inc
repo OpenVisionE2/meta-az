@@ -35,12 +35,12 @@ SYSVINIT_ENABLED_GETTYS = ""
 BLINDSCAN_BINARY = "avl_azbox_blindscan"
 
 MACHINE_ESSENTIAL_EXTRA_RDEPENDS += "\
+	firmware-rt61 \
 	kernel-module-rt61pci \
 	kernel-module-rt2x00pci \
 	kernel-module-rt2x00lib \
 	kernel-module-mac80211 \
 	kernel-module-eeprom-93cx6 \
-	rt61-firmware \
 	"
 
 do_image_azboxcramfs[depends] += "${MACHINE}-buildimage-native:do_populate_sysroot"

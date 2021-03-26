@@ -13,6 +13,7 @@ MACHINE_ESSENTIAL_EXTRA_RDEPENDS += "\
 
 EXTRA_IMAGEDEPENDS += "\
 	kmod-native \
+	${MACHINE}-buildimage-native \
 	"
 
 DVBPROVIDER = "kernel"
@@ -43,8 +44,6 @@ MACHINE_ESSENTIAL_EXTRA_RDEPENDS += "\
 	kernel-module-eeprom-93cx6 \
 	"
 
-do_image_azboxcramfs[depends] += "${MACHINE}-buildimage-native:do_populate_sysroot"
-
 MACHINE_FEATURES += "ci smallflash SCART YUV RCA"
 
 SOC_FAMILY = "smp8634"
@@ -57,13 +56,14 @@ KERNEL_MODULE_AUTOLOAD += "\
 	eeprom_93cx6 \
 	"
 
-IMAGE_FSTYPES = "azboxcramfs"
+IMAGE_FSTYPES += "cramfs"
+IMAGE_CLASSES += "cramfs-azbox"
 
-IMAGE_CMD_azboxcramfs_append = " \
+IMAGE_CMD_cramfs_append = " \
 	rm -fR ${IMAGE_ROOTFS}/boot/*; \
 	mkfs.cramfs ${IMAGE_ROOTFS} ${DEPLOY_DIR_IMAGE}/azboxhd.cramfs; \
-	pack_e2 -t Vision \
-	-d Vision \
+	pack_e2 -t OV \
+	-d OV \
 	-a Enigma2 \
 	-v ${VISIONVERSION}-${VISIONREVISION} \
 	-i ${DEPLOY_DIR_IMAGE}/azboxhd.cramfs \

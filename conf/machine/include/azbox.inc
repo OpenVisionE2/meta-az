@@ -16,7 +16,6 @@ EXTRA_IMAGEDEPENDS += "\
 	${MACHINE}-buildimage-native \
 	"
 
-DVBPROVIDER = "kernel"
 
 DVBMEDIASINK_CONFIG = "--with-wma --with-wmv --with-pcm --with-dtsdownmix"
 

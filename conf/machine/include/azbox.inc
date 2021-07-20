@@ -24,6 +24,7 @@ MACHINE_FEATURES += "azbox alsa usbhost nl80211 switchoff lpcm textlcd 32bpp dvb
 PREFERRED_PROVIDER_virtual/kernel = "linux-azbox"
 PREFERRED_VERSION_linux-azbox = "${KERNELVERSION}"
 PREFERRED_PROVIDER_virtual/blindscan-dvbs = "azbox-blindscan-dvbs-utils"
+PREFERRED_VERSION_wscan = "20130331"
 
 GLIBC_EXTRA_OECONF = "--with-tls --with-__thread"
 
